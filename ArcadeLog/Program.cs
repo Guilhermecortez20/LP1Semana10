@@ -8,7 +8,7 @@ namespace ArcadeLog
     {
         private static void Main(string[] args)
         {
-
+            // Lê o ficheiro e cria os Scores
             List<Score> scores = new List<Score>();
 
             foreach (string line in File.ReadAllLines(args[0]))
@@ -21,9 +21,10 @@ namespace ArcadeLog
                 scores.Add(new Score(name, points));
             }
 
-   
+            // Ordena por Pontos
             scores.Sort();
 
+            // Imprime e guarda ranking.txt
             List<string> ranking = new List<string>();
 
             foreach (Score score in scores)
@@ -36,8 +37,10 @@ namespace ArcadeLog
 
             Console.WriteLine("Ranking guardado em 'ranking.txt'.");
 
+            // Ordena por Nome
             scores.Sort((a, b) => a.Name.CompareTo(b.Name));
 
+            // Guarda alpha.txt
             List<string> alpha = new List<string>();
 
             foreach (Score score in scores)
